@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    	<meta charset="UTF-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<title>Exemplo 4</title>
+    </head>
+    <body>
+        <h1 id="titulo">Exemplo 4 - Versão 1</h1>
+
+        <button type="button" id="botao1">Botão 1</button>
+        <button type="button" id="botao2">Botão 2</button>
+        <button type="button" id="botao3">Botão 3</button>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+        <script>
+            $(document).ready(function()
+            {
+            	$("#botao1").on("click",function()
+                {
+            		$("#titulo").css("color","red");
+            	});
+
+            	$("#botao2").on("click",function()
+                {
+            		$("#titulo").css("background-color","yellow");
+            	});
+            });
+        </script>
+    </body>
+</html>

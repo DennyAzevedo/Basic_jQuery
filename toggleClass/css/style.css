@@ -1,0 +1,12 @@
+.box
+{
+	border: 1px solid #000;
+	text-align: center;
+	margin: 20px 0;
+	cursor: pointer;
+}
+
+.blue
+{
+	background-color: blue;
+}
