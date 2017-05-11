@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exemplo 5</title>
+		<style type="text/css">
+			.icone
+			{
+				opacity:0.3;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Exemplo 5</h1>
+		<img src="001.png" class="icone" />
+		<img src="002.png" class="icone" />
+		<img src="003.png" class="icone" />
+
+		<script src="jquery-3.1.1.min.js"></script>
+
+		<script>
+			$(document).ready(function()
+			{
+				$(".icone").on("mouseover", function()
+				{
+					/*$(".icone").css("opacity",0.3);*/
+					$(this).css("opacity",1);
+				});
+                
+                $(".icone").on("mouseout", function()
+                {
+                    $(this).css("opacity", 0.3);    
+                });
+			});
+		</script>
+	</body>
+</html>
