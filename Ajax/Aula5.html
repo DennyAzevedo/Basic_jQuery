@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consumo Ajax</title>
+</head>
+<body>
+    <header>
+        <img src="imgs/jQuery_1.png" style="width: 260px;">
+    </header>
+    <section>
+        <h1>Consulta de Notas</h1>
+        <form id="formulario" style="margin-bottom: 25px;">
+            <label>Id da nota a ser buscado: </label> <br><br>
+            <input id="id_nota" type="text" name="id" value="" placeholder="vazio para exibir todas">
+            <button id="enviar">ENVIAR</button>
+        </form>
+
+        <hr>
+
+        <p id="retorno"></p>
+    </section>
+
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script>
+        function exibeNota(data)
+        {
+            if ($.isArray(data))
+            {
+                $("#retorno").html("");
+                $.each(data, function(index, value)
+                {
+                    //insere no INÍCIO do paragrafo "retorno"
+                    $("#retorno").prepend("ID: "+value.Id+"<br>Titulo: "+value.Title+"<br>Conteudo: "+value.Body+"<br><br>");
+                    //insere no FINAL do paragrafo "retorno"
+                    //$("#retorno").append("ID: "+value.Id+"<br>Titulo: "+value.Title+"<br>Conteudo: "+value.Body+"<br><br>");
+                });
+            }
+            else
+            {
+                //TROCA o conteúdo do paragrafo "retorno"
+                $("#retorno").html("ID: "+data.Id+"<br>Titulo: "+data.Title+"<br>Conteudo: "+data.Body+"<br><br>");
+            }
+        }
+
+        function exibeErroNota()
+        {
+            $("#retorno").html("Ops, algo de errado aconteceu.");
+        }
+
+        function cliqueBotao(event)
+        {
+            event.preventDefault();
+            var id = $("#id_nota").val();
+
+            jQuery.ajax(
+            {
+                type: "GET",
+                dataType: "json",
+                url: "http://devmedianotesapi.azurewebsites.net/api/notes/"+id,
+                success: exibeNota,
+                error: exibeErroNota
+            });
+        }
+
+        $(document).ready(function()
+        {
+            $("#enviar").on('click', cliqueBotao);
+        });
+    </script>
+</body>
+</html>

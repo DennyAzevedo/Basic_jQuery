@@ -14,11 +14,11 @@
             $("#retorno").html("Ops, algo de errado aconteceu.");
         }
 
-        function cliqueBotao(event) 
+        function cliqueBotao(event)
 		{
             event.preventDefault();
             var id = $("#id_nota").val();
-           
+
            	jQuery.ajax(
 			{
                 type: "GET",
@@ -29,7 +29,7 @@
             });
         }
 
-        $(document).ready(function() 
+        $(document).ready(function()
 		{
             $("#enviar").on('click', cliqueBotao);
         });
@@ -37,7 +37,7 @@
 </head>
 <body>
     <header>
-        <img src="http://www.devmedia.com.br/Imagens/2013/logo_new.png" alt="DevMedia - Códigos e Jobs para Programadores" title="DevMedia - Códigos e Jobs para Programadores" style="width: 260px;">
+        <img src="imgs/jQuery_1.png" style="width: 260px;">
     </header>
     <section>
         <h1>Consulta de Notas</h1>
@@ -49,7 +49,7 @@
 
         <hr>
 
-        <p id="retorno"></p> 
+        <p id="retorno"></p>
     </section>
 
 </body>

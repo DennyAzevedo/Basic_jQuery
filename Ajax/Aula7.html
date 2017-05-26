@@ -2,21 +2,6 @@
 <html>
 <head>
     <title>Consumo Ajax</title>
-    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
-    <script>
-        function cliqueBotao(event)
-		{
-            /* previne a carga da página */
-			 event.preventDefault();
-            var id = $("#id_nota").val();
-            $("#retorno").html("Valor do input: "+id);
-        }
-
-        $(document).ready(function()
-		{
-            $("#enviar").on('click', cliqueBotao);
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -27,7 +12,7 @@
         <form id="formulario" style="margin-bottom: 25px;">
             <label>Id da nota a ser buscado: </label> <br><br>
             <input id="id_nota" type="text" name="id" value="" placeholder="vazio para exibir todas">
-            <button id="enviar">ENVIAR</button>
+            <button id="enviar">ENVIAR</button> <span id="loading"></span>
         </form>
 
         <hr>
@@ -35,5 +20,7 @@
         <p id="retorno"></p>
     </section>
 
+    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
